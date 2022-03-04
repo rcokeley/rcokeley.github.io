@@ -13971,12 +13971,12 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Data-Visualizations">Data Visualizations<a class="anchor-link" href="#Data-Visualizations">&#182;</a></h1><h3 id="A-brief-analysis-of-the-popular-TV-show-%22House%22.-Public-data-set-obtained-from-Kaggle.">A brief analysis of the popular TV show "House". Public data set obtained from Kaggle.<a class="anchor-link" href="#A-brief-analysis-of-the-popular-TV-show-%22House%22.-Public-data-set-obtained-from-Kaggle.">&#182;</a></h3>
+<h1 id="Data-Visualizations">Data Visualizations<a class="anchor-link" href="#Data-Visualizations">&#182;</a></h1><h2 id="A-brief-analysis-of-the-popular-TV-show-%22House%22.-Public-data-set-obtained-from-Kaggle.">A brief analysis of the popular TV show "House". Public data set obtained from Kaggle.<a class="anchor-link" href="#A-brief-analysis-of-the-popular-TV-show-%22House%22.-Public-data-set-obtained-from-Kaggle.">&#182;</a></h2>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[78]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13992,13 +13992,7 @@ a.anchor-link {
 
 <span class="c1">#open the house csv file and convert to a dataframe</span>
 <span class="n">house_df</span><span class="o">=</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;house_episodes.csv&#39;</span><span class="p">)</span>
-
-<span class="c1">#create a mini dataframe by splitting delimiter of original_air_date with columns Year, Month, Day</span>
-<span class="n">y_m_d_df</span><span class="o">=</span><span class="n">house_df</span><span class="p">[</span><span class="s1">&#39;original_air_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">y_m_d_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">]</span>
-
-<span class="c1">#concatenate both dataframes together</span>
-<span class="n">house_df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">house_original_df</span><span class="p">,</span><span class="n">y_m_d_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">house_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14006,16 +14000,123 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>season</th>
+      <th>episode_num_in_season</th>
+      <th>episode_num_overall</th>
+      <th>title</th>
+      <th>directed_by</th>
+      <th>written_by</th>
+      <th>original_air_date</th>
+      <th>us_viewers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Pilot</td>
+      <td>Bryan Singer</td>
+      <td>David Shore</td>
+      <td>2004-11-16</td>
+      <td>7050000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Paternity</td>
+      <td>Peter O'Fallon</td>
+      <td>Lawrence Kaplow</td>
+      <td>2004-11-23</td>
+      <td>6090000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>Occam's Razor</td>
+      <td>Bryan Singer</td>
+      <td>David Shore</td>
+      <td>2004-11-30</td>
+      <td>6330000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>Maternity</td>
+      <td>Newton Thomas Sigel</td>
+      <td>Peter Blake</td>
+      <td>2004-12-07</td>
+      <td>6740000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Damned If You Do</td>
+      <td>Greg Yaitanes</td>
+      <td>Sara B. Cooper</td>
+      <td>2004-12-14</td>
+      <td>6910000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Which TV show season had the most US viewers?</p>
-
+<h3 id="Which-TV-show-season-had-the-most-US-viewers?">Which TV show season had the most US viewers?<a class="anchor-link" href="#Which-TV-show-season-had-the-most-US-viewers?">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_most_season_df</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14041,7 +14142,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[71]:</div>
 
 
 
@@ -14123,7 +14224,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">season_with_most_views</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14164,19 +14265,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[72]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-945726083ef64e568f4917014a760465"></div>
+<div id="altair-viz-92717d0f0b364bbe8ba42488addfcc91"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-945726083ef64e568f4917014a760465") {
-      outputDiv = document.getElementById("altair-viz-945726083ef64e568f4917014a760465");
+    if (outputDiv.id !== "altair-viz-92717d0f0b364bbe8ba42488addfcc91") {
+      outputDiv = document.getElementById("altair-viz-92717d0f0b364bbe8ba42488addfcc91");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14235,13 +14336,12 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>How does average US viewers per director compare to total episodes per director?</p>
-
+<h3 id="How-does-average-US-viewers-per-director-compare-to-total-episodes-per-director?">How does average US viewers per director compare to total episodes per director?<a class="anchor-link" href="#How-does-average-US-viewers-per-director-compare-to-total-episodes-per-director?">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_director_df</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14270,7 +14370,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
 
 
 
@@ -14343,7 +14443,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">director_bars</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14397,19 +14497,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-8aa26d88402b48f4bdfefdd33e86a4f3"></div>
+<div id="altair-viz-d73d103a05974903bd18f43174273ab6"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8aa26d88402b48f4bdfefdd33e86a4f3") {
-      outputDiv = document.getElementById("altair-viz-8aa26d88402b48f4bdfefdd33e86a4f3");
+    if (outputDiv.id !== "altair-viz-d73d103a05974903bd18f43174273ab6") {
+      outputDiv = document.getElementById("altair-viz-d73d103a05974903bd18f43174273ab6");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -14468,13 +14568,12 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>When did the show rise and fall? And what episodes were the most popular by US viewer count?</p>
-
+<h3 id="When-did-the-show-rise-and-fall?-And-what-episodes-were-the-most-popular-by-US-viewer-count?">When did the show rise and fall? And what episodes were the most popular by US viewer count?<a class="anchor-link" href="#When-did-the-show-rise-and-fall?-And-what-episodes-were-the-most-popular-by-US-viewer-count?">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_annotations</span><span class="p">():</span>
@@ -14503,7 +14602,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[75]:</div>
 
 
 
@@ -14570,7 +14669,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_viewings_by_time</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14597,7 +14696,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
 
 
 
@@ -14664,7 +14763,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#plot the entire us_viewings data from season 1 to season 8 as a time_series line chart</span>
@@ -14710,19 +14809,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[62]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-<div id="altair-viz-a2ec698d534a4c94b6aac8acb1e167c4"></div>
+<div id="altair-viz-e6a402a1a58b44df96c2c15a91989773"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-a2ec698d534a4c94b6aac8acb1e167c4") {
-      outputDiv = document.getElementById("altair-viz-a2ec698d534a4c94b6aac8acb1e167c4");
+    if (outputDiv.id !== "altair-viz-e6a402a1a58b44df96c2c15a91989773") {
+      outputDiv = document.getElementById("altair-viz-e6a402a1a58b44df96c2c15a91989773");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
